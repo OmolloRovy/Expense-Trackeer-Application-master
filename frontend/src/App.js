@@ -8,6 +8,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Income from './Components/Income/Income'
 import Expenses from './Components/Expenses/Expenses';
 import { useGlobalContext } from './context/globalContext';
+import Singin from './Components/auth/singin';
 
 function App() {
   const [active, setActive] = useState(1)
@@ -17,10 +18,12 @@ function App() {
 
   const displayData = () => {
     switch(active){
+      // case 1:
+      //   return <Singin />
       case 1:
-        return <Dashboard />
-      case 2:
-        return <Dashboard />
+        return <Singin />
+        case 2:
+          return <Dashboard />
       case 3:
         return <Income />
       case 4: 
