@@ -17,7 +17,9 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <GlobalProvider>
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <App />
+    </ClerkProvider>
     </GlobalProvider>
   </React.StrictMode>
 );
