@@ -6,7 +6,7 @@ import { GlobalStyle } from './styles/GlobalStyle';
 import { ClerkProvider } from "@clerk/clerk-react";
 
 // Access the VITE_CLERK_PUBLISHABLE_KEY environment variable
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+const PUBLISHABLE_KEY = "pk_test_dXNhYmxlLWVsay01MC5jbGVyay5hY2NvdW50cy5kZXYk";
 
 // Check if the key exists and throw an error if not
 if (!PUBLISHABLE_KEY) {
