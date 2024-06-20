@@ -21,7 +21,7 @@ function App() {
       // case 1:
       //   return <Singin />
       case 1:
-        return <Dashboard/>
+        return <Singin />
         case 2:
           return <Dashboard />
       case 3:
