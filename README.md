@@ -1,2 +1,3 @@
 # Expense Tracker Application
-Frontend
+#Frontend
+It applies 
