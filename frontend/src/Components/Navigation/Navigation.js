@@ -1,13 +1,38 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import avatar from '../../img/avatar.png'
-import { signout } from '../../utils/Icons'
-import { menuItems } from '../../utils/menuItems'
+// import React, { useState } from 'react';
+import styled from 'styled-components';
+import avatar from '../../img/avatar.png';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-function Navigation({active, setActive}) {
-    
+// Import icons (assuming they are components or SVGs)
+import { dashboard, expenses, transactions, trend } from '../../utils/Icons';
+
+export const menuItems = [
+    {
+        id: 1,
+        title: 'Dashboard',
+        icon: dashboard,
+        link: '/'
+    },
+  
+    {
+        id: 3,
+        title: "Incomes",
+        icon: trend,
+        link: "/income" 
+    },
+    {
+        id: 4,
+        title: "Expenses",
+        icon: expenses,
+        link: "/expenses" 
+    },
+];
+
+function Navigation({ active, setActive }) {
+    const navigate = useNavigate();
+
     return (
-        <NavStyled>
+        <NavStyled>  {/* Closing backtick here */}
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
@@ -16,24 +41,25 @@ function Navigation({active, setActive}) {
                 </div>
             </div>
             <ul className="menu-items">
-                {menuItems.map((item) => {
-                    return <li
+                {menuItems.map((item) => (
+                    <li
                         key={item.id}
-                        onClick={() => setActive(item.id)}
+                        onClick={() => {
+                            setActive(item.id);
+                            navigate(item.link); // Navigate on click
+                        }}
                         className={active === item.id ? 'active': ''}
                     >
                         {item.icon}
                         <span>{item.title}</span>
                     </li>
-                })}
+                ))}
             </ul>
             <div className="bottom-nav">
-                <li>
-                    {signout} Sign Out
-                </li>
+                {/* Sign-out functionality (optional) */}
             </div>
         </NavStyled>
-    )
+    );
 }
 
 const NavStyled = styled.nav`
@@ -87,29 +113,9 @@ const NavStyled = styled.nav`
             padding-left: 1rem;
             position: relative;
             i{
-                color: rgba(34, 34, 96, 0.6);
-                font-size: 1.4rem;
-                transition: all .4s ease-in-out;
+                color: rgba(34, 34, 96, .6);
             }
         }
     }
-
-    .active{
-        color: rgba(34, 34, 96, 1) !important;
-        i{
-            color: rgba(34, 34, 96, 1) !important;
-        }
-        &::before{
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: #222260;
-            border-radius: 0 10px 10px 0;
-        }
-    }
 `;
-
 export default Navigation
