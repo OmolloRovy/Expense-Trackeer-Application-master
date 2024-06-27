@@ -1,3 +1,3 @@
 # Expense Tracker Application
 # Frontend
-It applies 
+It applies clerk for its authentication
